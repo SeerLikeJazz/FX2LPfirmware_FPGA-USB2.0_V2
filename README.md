@@ -1,0 +1,2 @@
+# FX2LPfirmware_FPGA-USB2.0_V2
+CY7C68013固件修改为3个端点
