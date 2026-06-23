@@ -1,4 +1,4 @@
-C51 COMPILER V7.07   FW                                                                    06/23/2026 09:22:35 PAGE 1   
+C51 COMPILER V7.07   FW                                                                    06/23/2026 11:14:01 PAGE 1   
 
 
 C51 COMPILER V7.07, COMPILATION OF MODULE FW
@@ -62,7 +62,7 @@ stmt level    source
   53          BOOL      Selfpwr;
   54          volatile BOOL   Sleep;                  // Sleep mode enable flag
   55          
-C51 COMPILER V7.07   FW                                                                    06/23/2026 09:22:35 PAGE 2   
+C51 COMPILER V7.07   FW                                                                    06/23/2026 11:14:01 PAGE 2   
 
   56          WORD   pDeviceDscr;   // Pointer to Device Descriptor; Descriptors may be moved
   57          WORD   pDeviceQualDscr;
@@ -126,7 +126,7 @@ stmt level    source
  115   1         // Initialize Global States
  116   1         Sleep = FALSE;               // Disable sleep mode
  117   1         Rwuen = FALSE;               // Disable remote wakeup
-C51 COMPILER V7.07   FW                                                                    06/23/2026 09:22:35 PAGE 3   
+C51 COMPILER V7.07   FW                                                                    06/23/2026 11:14:01 PAGE 3   
 
  118   1         Selfpwr = FALSE;            // Disable self powered
  119   1         GotSUD = FALSE;               // Clear "Got setup data" flag
@@ -190,7 +190,7 @@ stmt level    source
  177   1         
  178   1      #define NO_RENUM  1  
  179   1      #ifndef NO_RENUM
-C51 COMPILER V7.07   FW                                                                    06/23/2026 09:22:35 PAGE 4   
+C51 COMPILER V7.07   FW                                                                    06/23/2026 11:14:01 PAGE 4   
 
                  // Renumerate if necessary.  Do this by checking the renum bit.  If it
                  // is already set, there is no need to renumerate.  The renum bit will
@@ -254,7 +254,7 @@ stmt level    source
  238   2         }
  239   1      }
  240          
-C51 COMPILER V7.07   FW                                                                    06/23/2026 09:22:35 PAGE 5   
+C51 COMPILER V7.07   FW                                                                    06/23/2026 11:14:01 PAGE 5   
 
  241          // Device request parser
  242          void SetupCommand(void)
@@ -318,7 +318,7 @@ stmt level    source
  300   3                        EP0BCH = 0;
  301   3                        EP0BCL = 2;
  302   3                        break;
-C51 COMPILER V7.07   FW                                                                    06/23/2026 09:22:35 PAGE 6   
+C51 COMPILER V7.07   FW                                                                    06/23/2026 11:14:01 PAGE 6   
 
  303   3                     case GS_INTERFACE:         // Interface
  304   3                        EP0BUF[0] = 0;
@@ -382,7 +382,7 @@ stmt level    source
  362   2            default:                     // *** Invalid Command
  363   2               if(DR_VendorCmnd())
  364   2                  EZUSB_STALL_EP0();            // Stall End Point 0
-C51 COMPILER V7.07   FW                                                                    06/23/2026 09:22:35 PAGE 7   
+C51 COMPILER V7.07   FW                                                                    06/23/2026 11:14:01 PAGE 7   
 
  365   2         }
  366   1      

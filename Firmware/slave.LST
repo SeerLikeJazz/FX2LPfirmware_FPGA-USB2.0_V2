@@ -1,4 +1,4 @@
-C51 COMPILER V7.07   SLAVE                                                                 06/22/2026 20:13:06 PAGE 1   
+C51 COMPILER V7.07   SLAVE                                                                 06/23/2026 11:14:02 PAGE 1   
 
 
 C51 COMPILER V7.07, COMPILATION OF MODULE SLAVE
@@ -62,7 +62,7 @@ stmt level    source
   53          // sbit PB5 = IOB ^ 5;
   54          // sbit PB6 = IOB ^ 6;
   55          // sbit PB7 = IOB ^ 7;
-C51 COMPILER V7.07   SLAVE                                                                 06/22/2026 20:13:06 PAGE 2   
+C51 COMPILER V7.07   SLAVE                                                                 06/23/2026 11:14:02 PAGE 2   
 
   56          
   57          // EZUSB FX2 PORTD = FD[15:8], when IFCFG[1:0]=11 and WORDWIDE=1
@@ -126,7 +126,7 @@ stmt level    source
  115   1        EP8CFG = 0x02;                //clear valid bit
  116   1        SYNCDELAY;   
  117   1      
-C51 COMPILER V7.07   SLAVE                                                                 06/22/2026 20:13:06 PAGE 3   
+C51 COMPILER V7.07   SLAVE                                                                 06/23/2026 11:14:02 PAGE 3   
 
  118   1        //¸´Î»FIFO
  119   1        SYNCDELAY;
@@ -190,7 +190,7 @@ stmt level    source
  177          { // Called when a Set Configuration command is received
  178   1        
  179   1        if( EZUSB_HIGHSPEED( ) )
-C51 COMPILER V7.07   SLAVE                                                                 06/22/2026 20:13:06 PAGE 4   
+C51 COMPILER V7.07   SLAVE                                                                 06/23/2026 11:14:02 PAGE 4   
 
  180   1        { // ...FX2 in high speed mode
  181   2          EP6AUTOINLENH = 0x02;
@@ -254,7 +254,7 @@ stmt level    source
  239   1      }
  240          
  241          BOOL DR_VendorCmnd( void )
-C51 COMPILER V7.07   SLAVE                                                                 06/22/2026 20:13:06 PAGE 5   
+C51 COMPILER V7.07   SLAVE                                                                 06/23/2026 11:14:02 PAGE 5   
 
  242          {
  243   1        return( TRUE );
@@ -318,7 +318,7 @@ stmt level    source
  301   2            pOtherConfigDscr = pFullSpeedConfigDscr;
  302   2         }
  303   1         else
-C51 COMPILER V7.07   SLAVE                                                                 06/22/2026 20:13:06 PAGE 6   
+C51 COMPILER V7.07   SLAVE                                                                 06/23/2026 11:14:02 PAGE 6   
 
  304   1         {
  305   2            pConfigDscr = pFullSpeedConfigDscr;
@@ -382,7 +382,7 @@ stmt level    source
  363          void ISR_Errorlimit( void ) interrupt 0
  364          {
  365   1      }
-C51 COMPILER V7.07   SLAVE                                                                 06/22/2026 20:13:06 PAGE 7   
+C51 COMPILER V7.07   SLAVE                                                                 06/23/2026 11:14:02 PAGE 7   
 
  366          void ISR_Ep2piderror( void ) interrupt 0
  367          {
@@ -446,7 +446,7 @@ stmt level    source
  425          xdata volatile const BYTE LED1_ON  _at_ 0x9000;
  426          xdata volatile const BYTE LED1_OFF _at_ 0x9100;
  427          xdata volatile const BYTE LED2_ON  _at_ 0xA000;
-C51 COMPILER V7.07   SLAVE                                                                 06/22/2026 20:13:06 PAGE 8   
+C51 COMPILER V7.07   SLAVE                                                                 06/23/2026 11:14:02 PAGE 8   
 
  428          xdata volatile const BYTE LED2_OFF _at_ 0xA100;
  429          xdata volatile const BYTE LED3_ON  _at_ 0xB000;
@@ -510,7 +510,7 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =      5    ----
    PDATA SIZE       =   ----    ----
-C51 COMPILER V7.07   SLAVE                                                                 06/22/2026 20:13:06 PAGE 9   
+C51 COMPILER V7.07   SLAVE                                                                 06/23/2026 11:14:02 PAGE 9   
 
    DATA SIZE        =      2    ----
    IDATA SIZE       =   ----    ----

@@ -47,7 +47,7 @@ DeviceDscr:
       dw   0000H                ;; Product version ID
       db   1                    ;; Manufacturer string index
       db   2                    ;; Product string index
-      db   0                    ;; Serial number string index
+      db   3                    ;; Serial number string index
       db   1                    ;; Number of configurations
 
 DeviceQualDscr:
@@ -197,6 +197,18 @@ StringDscr2:
       db   '6',00
       db   '4',00
 StringDscr2End:
+
+StringDscr3:
+      db   StringDscr3End-StringDscr3      ;; Serial number descriptor length
+      db   DSCR_STRING
+      db   'X',00
+      db   '6',00
+      db   '4',00
+      db   '0',00
+      db   '0',00
+      db   '0',00
+      db   '1',00
+StringDscr3End:
 
 UserDscr:      
       dw   0000H
