@@ -174,6 +174,8 @@ void main(void)
    USBIE |= bmSUDAV | bmSUTOK | bmSUSP | bmURES | bmHSGRANT;   // Enable selected interrupts
    EA = 1;                  // Enable 8051 interrupts
 
+	 
+#define NO_RENUM	1	 
 #ifndef NO_RENUM
    // Renumerate if necessary.  Do this by checking the renum bit.  If it
    // is already set, there is no need to renumerate.  The renum bit will

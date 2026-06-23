@@ -42,8 +42,8 @@ DeviceDscr:
       db   00H                  ;; Device sub-class
       db   00H                  ;; Device sub-sub-class
       db   64                   ;; Maximum packet size
-      dw  0B404H                ;; Vendor ID
-      dw   0F100H                ;; Product ID (Sample Device)
+      dw   0180H                ;; Vendor ID
+      dw   0200H                ;; Product ID (Sample Device)
       dw   0000H                ;; Product version ID
       db   1                    ;; Manufacturer string index
       db   2                    ;; Product string index
@@ -128,7 +128,7 @@ FullSpeedConfigDscr:
       db   DSCR_INTRFC          ;; Descriptor type
       db   0                    ;; Zero-based index of this interface
       db   0                    ;; Alternate setting
-      db   2                    ;; Number of end points 
+      db   3                    ;; Number of end points 
       db   0ffH                 ;; Interface class
       db   00H                  ;; Interface sub class
       db   00H                  ;; Interface sub sub class
@@ -137,7 +137,7 @@ FullSpeedConfigDscr:
 ;; Endpoint Descriptor
       db   DSCR_ENDPNT_LEN      ;; Descriptor length
       db   DSCR_ENDPNT          ;; Descriptor type
-      db   04H                  ;; Endpoint number, and direction
+      db   02H                  ;; Endpoint number, and direction
       db   ET_BULK              ;; Endpoint type
       db   40H                  ;; Maximum packet size (LSB)
       db   00H                  ;; Maximum packet size (MSB)
@@ -146,14 +146,22 @@ FullSpeedConfigDscr:
 ;; Endpoint Descriptor
       db   DSCR_ENDPNT_LEN      ;; Descriptor length
       db   DSCR_ENDPNT          ;; Descriptor type
-      db   88H                  ;; Endpoint number, and direction
+      db   84H                  ;; Endpoint number, and direction
+      db   ET_BULK              ;; Endpoint type
+      db   40H                  ;; Maximum packet size (LSB)
+      db   00H                  ;; Maximum packet size (MSB)
+      db   00H                  ;; Polling interval
+
+;; Endpoint Descriptor
+      db   DSCR_ENDPNT_LEN      ;; Descriptor length
+      db   DSCR_ENDPNT          ;; Descriptor type
+      db   86H                  ;; Endpoint number, and direction
       db   ET_BULK              ;; Endpoint type
       db   40H                  ;; Maximum packet size (LSB)
       db   00H                  ;; Maximum packet size (MSB)
       db   00H                  ;; Polling interval
 
 FullSpeedConfigDscrEnd:   
-
 StringDscr:
 
 StringDscr0:   
@@ -177,67 +185,17 @@ StringDscr1End:
 StringDscr2:   
       db   StringDscr2End-StringDscr2      ;; Descriptor length
       db   DSCR_STRING
-      db   'E',00
-      db   'Z',00
+      db   'i',00
+      db   'S',00
+      db   'e',00
+      db   'n',00
+      db   's',00
+      db   'y',00
+      db   's',00
       db   '-',00
-      db   'U',00
-      db   'S',00
-      db   'B',00
-      db   ' ',00
-      db   'F',00
       db   'X',00
-      db   '2',00
-      db   ' ',00
-      db   'G',00
-      db   'P',00
-      db   'I',00
-      db   'F',00
-      db   ' ',00
-      db   't',00
-      db   'o',00
-      db   ' ',00
-      db   'E',00
-      db   'x',00
-      db   't',00
-      db   ' ',00
-      db   'F',00
-      db   'I',00
-      db   'F',00
-      db   'O',00
-      db   ' ',00
-      db   'E',00
-      db   'x',00
-      db   'a',00
-      db   'm',00
-      db   'p',00
-      db   'l',00
-      db   'e',00
-      db   ' ',00
-      db   'u',00
-      db   's',00
-      db   'i',00
-      db   'n',00
-      db   'g',00
-      db   ' ',00
-      db   'S',00
-      db   'i',00
-      db   'n',00
-      db   'g',00
-      db   'l',00
-      db   'e',00
-      db   ' ',00
-      db   'T',00
-      db   'r',00
-      db   'a',00
-      db   'n',00
-      db   's',00
-      db   'a',00
-      db   'c',00
-      db   't',00
-      db   'i',00
-      db   'o',00
-      db   'n',00
-      db   's',00
+      db   '6',00
+      db   '4',00
 StringDscr2End:
 
 UserDscr:      

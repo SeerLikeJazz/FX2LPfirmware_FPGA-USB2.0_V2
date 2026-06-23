@@ -1,9 +1,9 @@
-C51 COMPILER V7.07   SLAVE                                                                 12/16/2025 20:44:06 PAGE 1   
+C51 COMPILER V7.07   SLAVE                                                                 06/22/2026 20:13:06 PAGE 1   
 
 
 C51 COMPILER V7.07, COMPILATION OF MODULE SLAVE
 OBJECT MODULE PLACED IN slave.OBJ
-COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE slave.c OPTIMIZE(6,SPEED) DEBUG OBJECTEXTEND
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE slave.c OPTIMIZE(6,SPEED) DEBUG OBJECTEXTEND TABS(2)
 
 stmt level    source
 
@@ -62,7 +62,7 @@ stmt level    source
   53          // sbit PB5 = IOB ^ 5;
   54          // sbit PB6 = IOB ^ 6;
   55          // sbit PB7 = IOB ^ 7;
-C51 COMPILER V7.07   SLAVE                                                                 12/16/2025 20:44:06 PAGE 2   
+C51 COMPILER V7.07   SLAVE                                                                 06/22/2026 20:13:06 PAGE 2   
 
   56          
   57          // EZUSB FX2 PORTD = FD[15:8], when IFCFG[1:0]=11 and WORDWIDE=1
@@ -95,11 +95,11 @@ stmt level    source
   84   1        CPUCS = 0x12; // CLKSPD[1:0]=10, for 48MHz operation, output CLKOUT
   85   1      
   86   1        //配置FIFO标志输出，FLAG B配置为EP2 OUT FIFO空标志
-  87   1        PINFLAGSAB = 0x81;                    // FLAGB - EP2EF
+  87   1        PINFLAGSAB = 0x81;      // FLAGB - EP2EF
   88   1        SYNCDELAY;
   89   1      
   90   1        //配置FIFO标志输出，FLAG C配置为EP6 IN FIFO满标志
-  91   1        PINFLAGSCD = 0x1E;                    // FLAGC - EP6FF
+  91   1        PINFLAGSCD = 0x1E;      // FLAGC - EP6FF
   92   1        SYNCDELAY;
   93   1      
   94   1         //配置FIFO标志输出，FLAG G配置为EP2 OUT FIFO空标志
@@ -126,7 +126,7 @@ stmt level    source
  115   1        EP8CFG = 0x02;                //clear valid bit
  116   1        SYNCDELAY;   
  117   1      
-C51 COMPILER V7.07   SLAVE                                                                 12/16/2025 20:44:06 PAGE 3   
+C51 COMPILER V7.07   SLAVE                                                                 06/22/2026 20:13:06 PAGE 3   
 
  118   1        //复位FIFO
  119   1        SYNCDELAY;
@@ -190,7 +190,7 @@ stmt level    source
  177          { // Called when a Set Configuration command is received
  178   1        
  179   1        if( EZUSB_HIGHSPEED( ) )
-C51 COMPILER V7.07   SLAVE                                                                 12/16/2025 20:44:06 PAGE 4   
+C51 COMPILER V7.07   SLAVE                                                                 06/22/2026 20:13:06 PAGE 4   
 
  180   1        { // ...FX2 in high speed mode
  181   2          EP6AUTOINLENH = 0x02;
@@ -254,7 +254,7 @@ stmt level    source
  239   1      }
  240          
  241          BOOL DR_VendorCmnd( void )
-C51 COMPILER V7.07   SLAVE                                                                 12/16/2025 20:44:06 PAGE 5   
+C51 COMPILER V7.07   SLAVE                                                                 06/22/2026 20:13:06 PAGE 5   
 
  242          {
  243   1        return( TRUE );
@@ -318,7 +318,7 @@ stmt level    source
  301   2            pOtherConfigDscr = pFullSpeedConfigDscr;
  302   2         }
  303   1         else
-C51 COMPILER V7.07   SLAVE                                                                 12/16/2025 20:44:06 PAGE 6   
+C51 COMPILER V7.07   SLAVE                                                                 06/22/2026 20:13:06 PAGE 6   
 
  304   1         {
  305   2            pConfigDscr = pFullSpeedConfigDscr;
@@ -382,7 +382,7 @@ stmt level    source
  363          void ISR_Errorlimit( void ) interrupt 0
  364          {
  365   1      }
-C51 COMPILER V7.07   SLAVE                                                                 12/16/2025 20:44:06 PAGE 7   
+C51 COMPILER V7.07   SLAVE                                                                 06/22/2026 20:13:06 PAGE 7   
 
  366          void ISR_Ep2piderror( void ) interrupt 0
  367          {
@@ -446,7 +446,7 @@ stmt level    source
  425          xdata volatile const BYTE LED1_ON  _at_ 0x9000;
  426          xdata volatile const BYTE LED1_OFF _at_ 0x9100;
  427          xdata volatile const BYTE LED2_ON  _at_ 0xA000;
-C51 COMPILER V7.07   SLAVE                                                                 12/16/2025 20:44:06 PAGE 8   
+C51 COMPILER V7.07   SLAVE                                                                 06/22/2026 20:13:06 PAGE 8   
 
  428          xdata volatile const BYTE LED2_OFF _at_ 0xA100;
  429          xdata volatile const BYTE LED3_ON  _at_ 0xB000;
@@ -456,50 +456,50 @@ stmt level    source
  433          BYTE xdata LED_State = 0;
  434          void LED_Off (BYTE LED_Mask)
  435          {
- 436   1              if (LED_Mask & bmBIT0)
- 437   1              {
- 438   2                      ledX_rdvar = LED0_OFF;
- 439   2                      LED_State &= ~bmBIT0;
- 440   2              }
- 441   1              if (LED_Mask & bmBIT1)
- 442   1              {
- 443   2                      ledX_rdvar = LED1_OFF;
- 444   2                      LED_State &= ~bmBIT1;
- 445   2              }
- 446   1              if (LED_Mask & bmBIT2)
- 447   1              {
- 448   2                      ledX_rdvar = LED2_OFF;
- 449   2                      LED_State &= ~bmBIT2;
- 450   2              }
- 451   1              if (LED_Mask & bmBIT3)
- 452   1              {
- 453   2                      ledX_rdvar = LED3_OFF;
- 454   2                      LED_State &= ~bmBIT3;
- 455   2              }
+ 436   1        if (LED_Mask & bmBIT0)
+ 437   1        {
+ 438   2          ledX_rdvar = LED0_OFF;
+ 439   2          LED_State &= ~bmBIT0;
+ 440   2        }
+ 441   1        if (LED_Mask & bmBIT1)
+ 442   1        {
+ 443   2          ledX_rdvar = LED1_OFF;
+ 444   2          LED_State &= ~bmBIT1;
+ 445   2        }
+ 446   1        if (LED_Mask & bmBIT2)
+ 447   1        {
+ 448   2          ledX_rdvar = LED2_OFF;
+ 449   2          LED_State &= ~bmBIT2;
+ 450   2        }
+ 451   1        if (LED_Mask & bmBIT3)
+ 452   1        {
+ 453   2          ledX_rdvar = LED3_OFF;
+ 454   2          LED_State &= ~bmBIT3;
+ 455   2        }
  456   1      }
  457          
  458          void LED_On (BYTE LED_Mask)
  459          {
- 460   1              if (LED_Mask & bmBIT0)
- 461   1              {
- 462   2                      ledX_rdvar = LED0_ON;
- 463   2                      LED_State |= bmBIT0;
- 464   2              }
- 465   1              if (LED_Mask & bmBIT1)
- 466   1              {
- 467   2                      ledX_rdvar = LED1_ON;
- 468   2                      LED_State |= bmBIT1;
- 469   2              }
- 470   1              if (LED_Mask & bmBIT2)
- 471   1              {
- 472   2                      ledX_rdvar = LED2_ON;
- 473   2                      LED_State |= bmBIT2;
- 474   2              }
- 475   1              if (LED_Mask & bmBIT3)
- 476   1              {
- 477   2                      ledX_rdvar = LED3_ON;
- 478   2                      LED_State |= bmBIT3;
- 479   2              }
+ 460   1        if (LED_Mask & bmBIT0)
+ 461   1        {
+ 462   2          ledX_rdvar = LED0_ON;
+ 463   2          LED_State |= bmBIT0;
+ 464   2        }
+ 465   1        if (LED_Mask & bmBIT1)
+ 466   1        {
+ 467   2          ledX_rdvar = LED1_ON;
+ 468   2          LED_State |= bmBIT1;
+ 469   2        }
+ 470   1        if (LED_Mask & bmBIT2)
+ 471   1        {
+ 472   2          ledX_rdvar = LED2_ON;
+ 473   2          LED_State |= bmBIT2;
+ 474   2        }
+ 475   1        if (LED_Mask & bmBIT3)
+ 476   1        {
+ 477   2          ledX_rdvar = LED3_ON;
+ 478   2          LED_State |= bmBIT3;
+ 479   2        }
  480   1      }
  481          
  482          
@@ -510,7 +510,7 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =      5    ----
    PDATA SIZE       =   ----    ----
-C51 COMPILER V7.07   SLAVE                                                                 12/16/2025 20:44:06 PAGE 9   
+C51 COMPILER V7.07   SLAVE                                                                 06/22/2026 20:13:06 PAGE 9   
 
    DATA SIZE        =      2    ----
    IDATA SIZE       =   ----    ----
