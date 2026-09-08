@@ -84,7 +84,7 @@ void TD_Init( void )
   CPUCS = 0x12; // CLKSPD[1:0]=10, for 48MHz operation, output CLKOUT
 
   //配置FIFO标志输出，FLAG B配置为EP2 OUT FIFO空标志
-  PINFLAGSAB = 0x81;			// FLAGB - EP2EF
+  PINFLAGSAB = 0x8D;			// FLAGB - EP2EF 2026.09.07 flaga->EP4ful1
   SYNCDELAY;
 
   //配置FIFO标志输出，FLAG C配置为EP6 IN FIFO满标志
